@@ -12,6 +12,7 @@ body{
     width: 850px;
     margin: 0 auto;
     height: 400px;
+    padding:10px 15px;
     border: 1px solid black;
 }
 .box{
