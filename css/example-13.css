@@ -31,7 +31,41 @@ img{
     height:auto;
 }
 body{
+    background: url("../images/road.png") no-repeat 0 0 /cover fixed;
     /* font-size: 20px; - font를 안주면 16px를 기본*/
+}
+/* header공통 */
+.header{
+    background-color: #fff;
+    z-index:10;
+}
+/* 광고 섹션 공통 */
+.ad{
+    color:#fff;
+    font-size: 3em;
+    /* 곱하기 3 */
+    /* display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 1em;
+    가운데정렬 및 밑으로 놓는건 */
+}
+.ad-contents{
+    /* background-color:blue; */
+    position: sticky;
+    top: 100px;
+    text-align:right;
+    padding-right: 1em;
+}
+/* main 공통 */
+.main{
+    background-color: white;
+}
+
+/* footer 공통 */
+.footer{
+    background-color: #181818;
+    color:#fff;
 }
 
 /* 모바일과데스크탑을 나눠서 해라! */
@@ -45,7 +79,7 @@ body{
     }
     /* 모바일 메뉴 */
     .menu{
-        background: yellow;
+        /* background: yellow; */
         /* grid보다 flex를 선택한 이유는 메뉴가 더해질수도 있고 빠질수도있으니 flex를 사용하면 자동으로 됨*/
         display: flex;
         justify-content: space-around;
@@ -53,7 +87,7 @@ body{
     .menu a{
         display: block;
         /* display: block;이거 안주면 a(링크)가 inline이라서 패딩을 넣었을떄 부모까지 늘러짐 */
-        background:pink;
+        /* background:pink; */
         padding: 1em;
         /* 반응형에서는 px보다 em을써야함 1em은 1글자 padding 들어감 */
         text-transform: uppercase;
@@ -68,10 +102,11 @@ body{
         display:grid;
         grid-template-areas: "logo     menu";
         /* 밑에 있는 grid-area가 어디에 위치한지 말하는것 */
-        background-color: lime;
+        /* background-color: lime; */
         align-items: center;
         padding:1em 2em;
-        position: fixed;
+        /* position: fixed; */
+        position: sticky;
         width: 100%;
         top: 0;
         left: 0;
@@ -80,13 +115,13 @@ body{
     .logo{
         grid-area: logo;
         width:20%;
-        background-color: yellow;
+        /* background-color: yellow; */
     }
     /* 데스크탑 메뉴 */
     .menu{
         grid-area: menu;
         display:flex;
-        background:pink;
+        /* background:pink; */
     }
     /* 클릭 면적을 위한 */
     .menu a{
@@ -105,15 +140,15 @@ body{
         /* ""- 이건 null */
     }
     .ad{
-        background: orange;
+        /* background: orange; */
         height:50vh;
     }
     .main{
-        background: silver;
+        /* background: silver; */
         height:50vh;
     }
     .footer{
-        background: aqua;
+        /* background: aqua; */
         height:50vh;
     }
 }
