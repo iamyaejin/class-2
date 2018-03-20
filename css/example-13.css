@@ -149,6 +149,10 @@ body {
   .menu-act {
       transform: translateX(0);
   }
+  .main .box{
+      min-height: 100px;
+      margin: 1em;
+  }
 }
 
 /* 모바일 디바이스-flex 사용예시 */
@@ -177,7 +181,25 @@ body {
     /* 반응형에서는 px보다 em을써야함 1em은 1글자 padding 들어감 */
     text-transform: uppercase;
     /* uppercase,lowercase,capitalize */
-  }
+    }
+    /* 모바일 메인 */
+    .main{
+        /* background:orange; */
+        overflow: hidden;
+    }
+    .main .box{
+        min-height: 100px;
+        /* background: lime; */
+        float: left;
+        width: 45%;
+        height: 150 px;
+        margin: 1em 2.5%;
+
+    }
+    .box1{
+    /* background: skyblue; */
+    }
+  
 }
 
 /* 데스크탑 디바이스-grid 사용 */
@@ -228,10 +250,21 @@ body {
     content: "";
     /* ""- 이건 null */
   }
+  /* 데스크탑 메인-grid사용 */
   .main {
-    /* background: silver; */
-    height: 50vh;
+    /* background: yellow; */
+    display: grid;
+    grid-template-areas: "box box box box";
+    grid-auto-columns: 20%;
+    grid-auto-rows: 150px;
+    justify-content: space-between;
+    grid-row-gap: 20px;
+    padding: 2em;
   }
+  .main .box{
+      /* background: pink; */
+  }
+  /* 데스크탑 푸터 */
   .footer {
     /* background: aqua; */
     height: 50vh;
