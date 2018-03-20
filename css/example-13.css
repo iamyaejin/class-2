@@ -1,154 +1,210 @@
 @charset "utf-8";
-*, *::before, *::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    /* list-style-type: none; - ul,ol태그처럼 bullet이없어짐 agent style 한쓴다는  */
-    font: inherit;
-    /* inherit 상속, 갖은거한테 상속은 밀리게되어있음 그럼 겹쳐서 안됨 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  /* list-style-type: none; - ul,ol태그처럼 bullet이없어짐 agent style 한쓴다는  */
+  font: inherit;
+  /* inherit 상속, 갖은거한테 상속은 밀리게되어있음 그럼 겹쳐서 안됨 */
 }
-a{
-    color:inherit;
-    text-decoration: none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 /* 숨긴 컨텐츠 */
-.readable-hidden{
-    background-color:pink;
-    display: absolute;
-    width: 1px;
-    height: 1px;
-    overflow:hidden;
-    margin:-1px;
-    clip: rect(0,0,0,0);
-    /* diplays에 none을 주면 컨텐츠 사라짐 */
-    /* display absolute하고 width,height,overflow-텍스트가 박스보다 넘어갔을때 hidden해라,margin,clip를 하면 읽긴 하지만 안보임*/
-    /* 모바일이랑 데스크탑 둘 다 해당되는 module이기 때문에 위에다가 놓음 */
-    
+.readable-hidden {
+  background-color: pink;
+  display: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  /* diplays에 none을 주면 컨텐츠 사라짐 */
+  /* display absolute하고 width,height,overflow-텍스트가 박스보다 넘어갔을때 hidden해라,margin,clip를 하면 읽긴 하지만 안보임*/
+  /* 모바일이랑 데스크탑 둘 다 해당되는 module이기 때문에 위에다가 놓음 */
 }
-img{
-    max-width:100%;
-    height:auto;
+img {
+  max-width: 100%;
+  height: auto;
 }
-body{
-    background: url("../images/road.png") no-repeat 0 0 /cover fixed;
-    /* font-size: 20px; - font를 안주면 16px를 기본*/
+body {
+  background: url("../images/road.png") no-repeat 0 0 / cover fixed;
+  /* font-size: 20px; - font를 안주면 16px를 기본*/
 }
 /* header공통 */
-.header{
-    background-color: #fff;
-    z-index:10;
+.header {
+  background-color: #fff;
+  z-index: 10;
 }
 /* 광고 섹션 공통 */
-.ad{
-    color:#fff;
-    font-size: 3em;
-    /* 곱하기 3 */
-    /* display:flex;
+.ad {
+  color: #fff;
+  font-size: 3em;
+  min-height: 500px;
+  /* 곱하기 3 */
+  /* display:flex;
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 1em;
     가운데정렬 및 밑으로 놓는건 */
 }
-.ad-contents{
-    /* background-color:blue; */
-    position: sticky;
-    top: 100px;
-    text-align:right;
-    padding-right: 1em;
+.ad-contents {
+  /* background-color:blue; */
+  position: sticky;
+  top: 100px;
+  text-align: right;
+  padding-right: 1em;
 }
 /* main 공통 */
-.main{
-    background-color: white;
+.main {
+  background-color: white;
 }
 
 /* footer 공통 */
-.footer{
-    background-color: #181818;
-    color:#fff;
+.footer {
+  background-color: #181818;
+  color: #fff;
 }
 
 /* 모바일과데스크탑을 나눠서 해라! */
-/* 모바일 디바이스-flex 사용예시 */
-@media screen and (max-width:999px){
-    /* 모바일 로고 */
-    .logo{
-        /* background: yellow; 확인을 위해 늘 해야함*/
-        width: 50%;
-        margin: 0 auto;
-    }
-    /* 모바일 메뉴 */
-    .menu{
-        /* background: yellow; */
-        /* grid보다 flex를 선택한 이유는 메뉴가 더해질수도 있고 빠질수도있으니 flex를 사용하면 자동으로 됨*/
-        display: flex;
-        justify-content: space-around;
-    }
-    .menu a{
-        display: block;
-        /* display: block;이거 안주면 a(링크)가 inline이라서 패딩을 넣었을떄 부모까지 늘러짐 */
-        /* background:pink; */
-        padding: 1em;
-        /* 반응형에서는 px보다 em을써야함 1em은 1글자 padding 들어감 */
-        text-transform: uppercase;
-        /* uppercase,lowercase,capitalize */
-    }
 
+/* mobile small device- hamburger bar */
+@media screen and (min-width: 1px) and (max-width: 550px) {
+  /* 모바일 small 로고 */
+  .logo {
+    background: yellow;
+    width: 35%;
+    margin-left: 2em;
+  }
+  .btn-wrapper {
+    background: aqua;
+    position: fixed;
+    top: 0.5em;
+    right: 1em;
+    width: 40px;
+    height: 40px;
+  }
+  .btn-menubar {
+    display: none;
+  }
+  .menubar {
+    /* display: block; */
+    position: absolute;
+    left: 0;
+    background: #181818;
+    border-radius: 10px;
+    width: 100%;
+    height: 25%;
+  }
+  .menubar-top {
+      top: 0;
+  }
+  .menubar-middle {
+      top: 50%;
+      transform: translateY(-50%);
+  }
+  .menubar-bottom {
+      top: 100%;
+      transform: translateY(-100%);
+  }
+  .menu {
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 10;
+    color: #fff;
+    /* 텍스트 칼라 */
+    padding: 3em 0 0 2em;
+    transform: translateX(-100%);
+  }
+  .menu-act {
+      transform: translateY(0);
+  }
 }
+
+/* 모바일 디바이스-flex 사용예시 */
+@media screen and (min-width: 551px) and (max-width: 999px) {
+  /* 모바일 로고 */
+  .logo {
+    /* background: yellow; 확인을 위해 늘 해야함*/
+    width: 50%;
+    margin: 0 auto;
+  }
+  /* 모바일 메뉴 */
+  .menu {
+    /* background: yellow; */
+    /* grid보다 flex를 선택한 이유는 메뉴가 더해질수도 있고 빠질수도있으니 flex를 사용하면 자동으로 됨*/
+    display: flex;
+    justify-content: space-around;
+  }
+  .menu a {
+    display: block;
+    /* display: block;이거 안주면 a(링크)가 inline이라서 패딩을 넣었을떄 부모까지 늘러짐 */
+    /* background:pink; */
+    padding: 1em;
+    /* 반응형에서는 px보다 em을써야함 1em은 1글자 padding 들어감 */
+    text-transform: uppercase;
+    /* uppercase,lowercase,capitalize */
+  }
+}
+
 /* 데스크탑 디바이스-grid 사용 */
-@media screen and (min-width:1000px){
-    /* 데스크탑 헤더 */
-    .header{
-        display:grid;
-        grid-template-areas: "logo     menu";
-        /* 밑에 있는 grid-area가 어디에 위치한지 말하는것 */
-        /* background-color: lime; */
-        align-items: center;
-        padding:1em 2em;
-        /* position: fixed; */
-        position: sticky;
-        width: 100%;
-        top: 0;
-        left: 0;
-    }
-    /* 데스크탑 로고 */
-    .logo{
-        grid-area: logo;
-        width:20%;
-        /* background-color: yellow; */
-    }
-    /* 데스크탑 메뉴 */
-    .menu{
-        grid-area: menu;
-        display:flex;
-        /* background:pink; */
-    }
-    /* 클릭 면적을 위한 */
-    .menu a{
-        display: block;
-        padding: 1em 1em 1em 0;
-        text-transform:uppercase;
-    }
-    /* 디자인을 위한 ::before, ::after-가상, 장식 */
-    .menu a::before{
-        content: "|";
-        padding-right: 1em;
-    }
-    /* 첫번째 빼고 다 .menu a::before를 적용하라 */
-    .menu li:first-child a::before{
-        content: "";
-        /* ""- 이건 null */
-    }
-    .ad{
-        /* background: orange; */
-        height:50vh;
-    }
-    .main{
-        /* background: silver; */
-        height:50vh;
-    }
-    .footer{
-        /* background: aqua; */
-        height:50vh;
-    }
+@media screen and (min-width: 1000px) {
+  /* 데스크탑 헤더 */
+  .header {
+    display: grid;
+    grid-template-areas: "logo     menu";
+    /* 밑에 있는 grid-area가 어디에 위치한지 말하는것 */
+    /* background-color: lime; */
+    align-items: center;
+    padding: 1em 2em;
+    /* position: fixed; */
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  /* 데스크탑 로고 */
+  .logo {
+    grid-area: logo;
+    width: 20%;
+    /* background-color: yellow; */
+  }
+  /* 데스크탑 메뉴 */
+  .menu {
+    grid-area: menu;
+    display: flex;
+    /* background:pink; */
+  }
+  /* 클릭 면적을 위한 */
+  .menu a {
+    display: block;
+    padding: 1em 1em 1em 0;
+    text-transform: uppercase;
+  }
+  /* 디자인을 위한 ::before, ::after-가상, 장식 */
+  .menu a::before {
+    content: "|";
+    padding-right: 1em;
+  }
+  /* 첫번째 빼고 다 .menu a::before를 적용하라 */
+  .menu li:first-child a::before {
+    content: "";
+    /* ""- 이건 null */
+  }
+  .main {
+    /* background: silver; */
+    height: 50vh;
+  }
+  .footer {
+    /* background: aqua; */
+    height: 50vh;
+  }
 }
