@@ -1,3 +1,15 @@
 .bg-light{
     background: rgb(248, 142, 160) !important;
 }
+/* .bg-fus{
+    background: rgb(248, 142, 160);
+} */
+
+/* .row .col:nth-child(odd) .card{
+    background: orange;
+} */
+
+.card{
+    width: 80%;
+    margin: 0 auto;
+}
