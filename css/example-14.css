@@ -14,7 +14,7 @@
     font-size: 3em;
 }
 .note{
-    background-color: yellow;
+    background-color: orange;
     width: 800px;
     /* 텍스트의 넓이 판 */
     /* overflow: hidden; */
@@ -29,8 +29,8 @@
     right: -50px;
     /* 사진이 짤람- right:-10px하니깐.b/c overflow hidden을 했기때무네 */
 }
-.ㅜclearfix::after{
-    content: "가상요소";
+.clearfix::after {
+    content: "";
     background-color: lime;
     clear: both;
     display: block;
