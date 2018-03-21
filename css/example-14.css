@@ -1,0 +1,48 @@
+@charset "utf-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  /* list-style-type: none; - ul,ol태그처럼 bullet이없어짐 agent style 한쓴다는  */
+  font: inherit;
+  /* inherit 상속, 갖은거한테 상속은 밀리게되어있음 그럼 겹쳐서 안됨 */
+}
+.heading{
+    font-size: 3em;
+}
+.note{
+    background-color: yellow;
+    width: 800px;
+    /* 텍스트의 넓이 판 */
+    /* overflow: hidden; */
+    /* 가로와 세로를 부모보다 자식인 크면 hidden */
+}
+.note img{
+    width: 200px;
+    height: auto;
+    float: right;
+    /* 이미지가 float되면서, 텍스트가 부모의 왼쪽으로 붙음 */
+    position: relative;
+    right: -50px;
+    /* 사진이 짤람- right:-10px하니깐.b/c overflow hidden을 했기때무네 */
+}
+.ㅜclearfix::after{
+    content: "가상요소";
+    background-color: lime;
+    clear: both;
+    display: block;
+}
+/* ::after는 인라인 */
+.next{
+    background-color: pink;
+    /* clear: both;
+    margin-top: 10em; */
+    /* clear right, left 다 올 수 있는데, right하면 오른쪽에 있는 애를 clear! 강제 margin을 추가함, 그래서 margin을 주고 싶으면 이미 clear에서 줬기 때문에 margin을 더 줘야함*/
+    margin-top: 50px;
+}
+.next img{
+    float: left;
+}
